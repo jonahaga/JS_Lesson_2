@@ -85,10 +85,8 @@
         });
 
         add_student_button.addEventListener('click', function(){
-            //this is a student name string
             var studentNameInput = document.getElementById("student_name").value;
             var randHouse = getRandomHouse();
-            console.log((houses[randHouse]).length);
             while ((houses[randHouse]).length == fullHouse){
                 randHouse = getRandomHouse();
             };
