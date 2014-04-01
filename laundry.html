@@ -55,39 +55,22 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 
     <script>
-        // var timer = [ 
-        //     { type: "washer", timer: "9:11" },
-        //     { type: "washer", timer: "12:33" },
-        //     { type: "dryer", timer: "54:44" },
-        //     { type: "dryer", timer: "0:03" }
-        // ];
-
         function decrementCounters(){
-            // Setting variable to all td classes with name of 'timer' from HTML
             var allTimers = document.getElementsByClassName("timer");
 
-            // For loop to iterate through array returned from allTimers where 'i' reps 1 each timer
             for (var i = 0; i < allTimers.length; i++){
-                // allTimers[i] gives us the element, and .innerHTML gets us the value as a string
                 var time = allTimers[i].innerHTML;
-                // Converts from string to seconds
                 var totalSeconds = (parseInt(time.split(":")[0]) * 60) + (parseInt(time.split(":")[1]));
 
-                // Stops time decrement when timer gets to 0:00
                 if (totalSeconds > 0){
-                    // Decrements seconds by 1
                     totalSeconds -= 1;
-                    // Converting seconds back to minutes
                     var minutes = Math.floor(totalSeconds / 60);
-                    // Returns remainder of seconds after minutes converted
                     var seconds = totalSeconds % 60;
 
-                    // Adds extra 0 to seconds if single digit
                     if (seconds < 10){
                         seconds = "0" + seconds;
                     };
                    
-                    // Concatenates minutes and seconds into m:ss
                     allTimers[i].innerHTML = minutes + ":" + seconds;
                 };
             }
